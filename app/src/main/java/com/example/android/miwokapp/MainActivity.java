@@ -17,6 +17,7 @@ package com.example.android.miwokapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,8 @@ import com.example.android.miwokapp.PhrasesActivity;
 import com.example.android.miwokapp.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
