@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * Created by saurav on 30/1/17.
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private int mColorResourceID;
+
 
 
     public WordAdapter(Activity context, ArrayList<Word> Words, int resource) {
@@ -73,6 +77,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         else {
             imageView.setVisibility(imageView.GONE);
         }
+
+
+
+
+
 
 
 

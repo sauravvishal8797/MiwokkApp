@@ -16,20 +16,23 @@ public class Word {
     private String mMiwokkTransaltion;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
+    private int mAuaioREsourceId;
 
 
-    public Word(String DefaultTranslation, String MiwokkTranslation){
+    public Word(String DefaultTranslation, String MiwokkTranslation, int AudioREsourceId){
 
         mDefaultTranslation = DefaultTranslation;
         mMiwokkTransaltion = MiwokkTranslation;
+        mAuaioREsourceId = AudioREsourceId;
 
     }
 
-    public Word(String DefaultTranslation, String MiwokkTranslation, int imageid){
+    public Word(String DefaultTranslation, String MiwokkTranslation, int imageid, int AudioResourceId){
 
         mDefaultTranslation = DefaultTranslation;
         mMiwokkTransaltion = MiwokkTranslation;
         mImageResourceId = imageid;
+        mAuaioREsourceId = AudioResourceId;
 
     }
 
@@ -52,5 +55,9 @@ public class Word {
     public boolean hasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;
 
+    }
+
+    public int getmAuaioREsourceId() {
+        return mAuaioREsourceId;
     }
 }
