@@ -60,4 +60,15 @@ public class Word {
     public int getmAuaioREsourceId() {
         return mAuaioREsourceId;
     }
-}
+
+    @Override
+    public String toString() {
+        return "Word{" +
+            "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                    ", mMiwokTranslation='" + mMiwokkTransaltion + '\'' +
+                    ", mAudioResourceId=" + mAuaioREsourceId +
+                    ", mImageResourceId=" + mImageResourceId +
+                    '}';
+        }
+    }
+

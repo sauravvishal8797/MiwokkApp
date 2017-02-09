@@ -14,6 +14,13 @@ public class ColorsActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaplayer;
 
+    private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +52,12 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                mMediaplayer.release();
+
                 Word word = words.get(i);
                 MediaPlayer mMediaplayer = MediaPlayer.create(ColorsActivity.this, word.getmAuaioREsourceId());
                 mMediaplayer.start();
+                mMediaplayer.setOnCompletionListener(mOnCompletionListener);
 
 
             }
@@ -57,6 +67,13 @@ public class ColorsActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void releaseMediaPlayer(){
+        if(mMediaplayer != null){
+            mMediaplayer.release();
+            mMediaplayer = null;
+        }
     }
 }
 

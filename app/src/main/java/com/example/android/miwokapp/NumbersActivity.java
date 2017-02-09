@@ -21,6 +21,15 @@ import static android.provider.UserDictionary.Words.WORD;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    private MediaPlayer mMediaplayer;
+
+    private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPLayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +62,9 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Word word = words.get(i);
-                MediaPlayer mMediaplayer = MediaPlayer.create(NumbersActivity.this, word.getmAuaioREsourceId());
+                mMediaplayer = MediaPlayer.create(NumbersActivity.this, word.getmAuaioREsourceId());
                 mMediaplayer.start();
+                mMediaplayer.setOnCompletionListener(mOnCompletionListener);
             }
         });
 
@@ -63,4 +73,12 @@ public class NumbersActivity extends AppCompatActivity {
 
 
     }
+
+    private void releaseMediaPLayer(){
+        if(mMediaplayer != null){
+            mMediaplayer.release();
+            mMediaplayer = null;
+        }
+    }
+
 }
